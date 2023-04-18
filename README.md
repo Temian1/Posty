@@ -1,0 +1,2 @@
+# Posty
+A Laravel Project
