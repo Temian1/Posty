@@ -64,3 +64,18 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+
+## Installation Guide
+
+1. Fork or download the project in your local system. N.B: You should have a local server like XAMPP, and Composer install in your system.
+2. Run the command, "composer update"
+3. Rename the file ".env.example" into ".env"
+4. Run the command, "php artisan key:generate"
+5. Create the database by looking the database name in the .env file. Here, DB_DATABASE=posty
+6. Run the command, "php artisan migrate" to create the tables to your local server
+7. Run the command, "php artisan serve"
+8. Install the node module by, "npm install"
+9. Run the command, "npm run dev"
+
+And the project is ready to perform.
