@@ -9,6 +9,8 @@
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^10.0",
         "laravel/sanctum": "^3.2",
+        "spatie/laravel-comments": "dev-main",
+        "spatie/laravel-comments-livewire": "*",
         "laravel/tinker": "^2.8"
     },
     "require-dev": {
@@ -47,6 +49,16 @@
             "@php artisan key:generate --ansi"
         ]
     },
+
+ "repositories": {
+        "packages": {
+        "type": "path",
+        "url": "packages/*",
+        "options": {
+        "symlink": true
+        }
+        }
+        },
     "extra": {
         "laravel": {
             "dont-discover": []
@@ -61,6 +73,6 @@
             "php-http/discovery": true
         }
     },
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "prefer-stable": true
 }

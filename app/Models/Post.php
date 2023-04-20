@@ -12,7 +12,8 @@ class Post extends Model
     use HasFactory;
 
     protected $fillable = [
-        'body'
+        'body',
+        'is_anon',
     ];
 
     public function likedBy(User $user) {
