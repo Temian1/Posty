@@ -46,7 +46,9 @@ class PostController extends Controller
             'is_anon' => $is_anon
         ];
 
-        $request->user()->posts()->create($postData);
+        $post = $request->user()->posts()->create($postData);
+
+        $post->setStatus('published', 'Story awaiting approval by moderator');
 
         return back();
     }
