@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Posty</title>
     @vite('resources/css/app.css')
+    @livewireStyles
 </head>
 <body class="bg-slate-100">
     <nav class="p-2 bg-white flex justify-between mb-3 text-lg text-gray-500 shadow-sm">
@@ -31,5 +32,6 @@
         </ul>
     </nav>
     @yield('content')
+    @livewireScripts
 </body>
 </html>

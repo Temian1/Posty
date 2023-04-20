@@ -15,6 +15,12 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
+            $table->bigInteger('member_id');
+            $table->string('gender')->nullable();
+            $table->date('birthday')->nullable();
+            $table->boolean('is_verified')->default(false);
+            $table->string('file')->default('img');
+            $table->string('avatar')->default('image');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
