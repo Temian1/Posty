@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="flex justify-center">
-    <div class="p-6 bg-white rounded-sm w-8/12">
+<div class="flex justify-center p-2">
+    <div class="p-6 bg-white rounded-sm ">
             <div class="">
                 <h1 class="text-2xl text-blue-500 font-extrabold pb-3">{{ $user->name }}</h1>
                 <h1 class="text-md text-blue-400 pb-10">Posted {{ $user->posts()->count() }} {{ Str::plural('post', $posts->count())}} and received total {{ $user->totalLikes()->count() }} likes</h1>
@@ -13,7 +13,7 @@
             @endforeach
             {{ $posts->links() }}
             @else
-                <p class="text-gray-500 border-s-2 border-red-400 ps-4">No post is created</p>                
+                <p class="text-gray-500 border-s-2 border-red-400 ps-4">No post is created</p>
             @endif
         </div>
     </div>

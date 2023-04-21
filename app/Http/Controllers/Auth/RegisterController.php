@@ -13,7 +13,7 @@ class RegisterController extends Controller
     {
         $this->middleware(['guest']);
     }
-    
+
     public function index() {
         return view('auth.register');
     }
@@ -34,6 +34,7 @@ class RegisterController extends Controller
             'name' => $request->name,
             'username' => $request->username,
             'email' => $request->email,
+            'member_id' => substr(str_shuffle('0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'), 0, 8),
             'password' => Hash::make($request->password)
         ]);
 

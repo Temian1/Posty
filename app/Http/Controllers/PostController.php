@@ -14,9 +14,19 @@ class PostController extends Controller
     // }
 
     public function index() {
-        $post = Post::latest()->with(['user', 'likes'])->paginate(5);
+        $posts = Post::with(['user', 'likes'])
+        ->leftJoin('statuses', function($join) {
+            $join->on('statuses.model_id', '=', 'posts.id')
+                ->where('statuses.model_type', '=', Post::class)
+                ->where('statuses.name', '=', 'approved');
+        })
+        ->withCount(['comments', 'likes'])
+        ->orderByDesc('likes_count')
+        ->orderByDesc('comments_count')
+        ->latest()
+        ->paginate(5);
         return view('posts.index', [
-            'posts' => $post,
+            'posts' => $posts,
         ]);
     }
 
@@ -48,7 +58,7 @@ class PostController extends Controller
 
         $post = $request->user()->posts()->create($postData);
 
-        $post->setStatus('published', 'Story awaiting approval by moderator');
+       $post->setStatus('published', 'Story awaiting approval by moderator');
 
         return back();
     }

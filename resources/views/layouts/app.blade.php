@@ -7,6 +7,7 @@
     <title>Posty</title>
     @vite('resources/css/app.css')
     @livewireStyles
+    <x-comments::styles />
 </head>
 <body class="bg-slate-100">
     <nav class="p-2 bg-white flex justify-between mb-3 text-lg text-gray-500 shadow-sm">
@@ -33,5 +34,6 @@
     </nav>
     @yield('content')
     @livewireScripts
+    <x-comments::scripts />
 </body>
 </html>

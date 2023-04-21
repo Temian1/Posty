@@ -3,23 +3,34 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Models\Like;
+use Laravel\Sanctum\HasApiTokens;
+use Rennokki\Befriended\Traits\Block;
+use Rennokki\Befriended\Traits\Follow;
+use Illuminate\Notifications\Notifiable;
+use Rennokki\Befriended\Contracts\Following;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
-use App\Models\Like;
+use Rennokki\Befriended\Contracts\Blocking;
+use Rennokki\Befriended\Contracts\Liker;
+use Rennokki\Befriended\Traits\CanLike;
 
-class User extends Authenticatable
+class User extends Authenticatable implements Following, Blocking, Liker
 {
     use HasApiTokens, HasFactory, Notifiable;
+    use Follow, Block, CanLike;
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
      */
+    protected $guarded = [];
     protected $fillable = [
         'name',
+        'member_id',
+        'birthday',
+        'gender',
         'username',
         'email',
         'password',

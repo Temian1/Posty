@@ -33,3 +33,5 @@
         <span class="text-gray-500">{{ $post->likes->count() }} {{ Str::plural('like', $post->likes->count() )}}</span>
     </div>
 </div>
+
+

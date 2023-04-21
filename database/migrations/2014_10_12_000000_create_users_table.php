@@ -15,7 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
-            $table->bigInteger('member_id');
+            $table->string('member_id')->unique();
+            $table->timestamp('banned_at')->nullable();
             $table->string('gender')->nullable();
             $table->date('birthday')->nullable();
             $table->boolean('is_verified')->default(false);
