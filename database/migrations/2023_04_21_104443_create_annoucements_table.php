@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('annoucements', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
+            $table->text('message');
+            $table->boolean('is_active')->default(false);
+            $table->boolean('displayed')->default(false);
             $table->timestamps();
         });
     }
